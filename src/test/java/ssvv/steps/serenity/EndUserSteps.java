@@ -29,8 +29,11 @@ public class EndUserSteps {
     }
 
     @Step
-    public void should_see_definition(String definition) {
-        assertThat(dictionaryPage.getDefinitions(), hasItem(containsString(definition)));
+    public void should_see_definition(String itemName, String definition, int ok) {
+        if(ok==1)
+            assert (definition.contains(itemName));
+        else
+            assert (!definition.contains(itemName));
     }
 
     @Step
@@ -42,5 +45,10 @@ public class EndUserSteps {
     public void looks_for(String term) {
         enters(term);
         starts_search();
+    }
+
+    @Step
+    public void add_to_cart(){
+        dictionaryPage.add_to_cart();
     }
 }
