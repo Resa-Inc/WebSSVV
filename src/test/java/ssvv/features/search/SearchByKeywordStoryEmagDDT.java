@@ -1,9 +1,6 @@
 package ssvv.features.search;
 
-import net.serenitybdd.core.annotations.findby.FindBy;
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
-import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.*;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.junit.annotations.Qualifier;
@@ -11,11 +8,8 @@ import net.thucydides.junit.annotations.UseTestDataFrom;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ssvv.steps.serenity.EndUserSteps;
 
 @RunWith(SerenityParameterizedRunner.class)
@@ -81,12 +75,12 @@ public class SearchByKeywordStoryEmagDDT {
 //        WebDriverWait wait = new WebDriverWait(webdriver, 10);
 //        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[3]/div[2]/div/section[1]/div/div[3]/div[2]/div[5]/div[1]/div/div/div[4]/div[2]/form/button")));
 //        webdriver.manage().window().maximize();
-        endUserSteps.add_to_cart();
-        WebElement cart = webdriver.findElement(By.xpath("/html/body/div[3]/nav[1]/div/div/div[3]/div/div[4]/a"));
-        cart.click();
-        WebElement cartItem = webdriver.findElement(By.xpath("/html/body/div[2]/div[2]/div[2]/div[1]/form/div/div[3]/div/div[1]/div/div[2]/div[1]/div[1]/a"));
-        String cartItemText = cartItem.getText();
-        endUserSteps.should_see_definition("Telefon",cartItemText,1);
+        endUserSteps.add_to_favourites();
+        WebElement favourites = webdriver.findElement(By.xpath("/html/body/div[3]/nav[1]/div/div/div[3]/div/div[3]"));
+        favourites.click();
+        WebElement favouritesItem = webdriver.findElement(By.xpath("/html/body/div[3]/div[2]/div/section/div/div[2]/div/div/div[2]/div/div/div[2]/div[1]/h2/a/span"));
+        String favouritesItemText = favouritesItem.getText();
+        endUserSteps.should_see_definition("Telefon",favouritesItemText,1);
 
 
 //        endUserSteps.is_the_home_page();

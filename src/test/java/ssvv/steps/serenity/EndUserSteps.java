@@ -1,17 +1,9 @@
 package ssvv.steps.serenity;
 
-import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.webdriver.WebDriverFacade;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import ssvv.pages.DictionaryPage;
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.steps.ScenarioSteps;
 import ssvv.pages.EmagDictionaryPage;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasItem;
 
 public class EndUserSteps {
@@ -48,7 +40,7 @@ public class EndUserSteps {
     }
 
     @Step
-    public void add_to_cart(){
-        dictionaryPage.add_to_cart();
+    public void add_to_favourites(){
+        dictionaryPage.add_to_favourites();
     }
 }
