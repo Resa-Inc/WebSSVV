@@ -42,25 +42,25 @@ public class SearchByKeywordStoryEmagDDT {
 //
 //    }
 
-//    @Test
-//    public void searching_by_keyword_telefon_should_display_the_corresponding_article() {
-//        endUserSteps.is_the_home_page();
-//        endUserSteps.looks_for(getName());
-//        WebElement webElement = webdriver.findElement(By.xpath("//*[@id=\"card_grid\"]/div[1]"));
-//        String namep = webElement.getAttribute("data-name");
-//        System.out.println(namep);
-//        endUserSteps.should_see_definition("Telefon", namep, 1);
-//    }
-//
-//    @Test
-//    public void searching_by_keyword_telefon_should_not_display_the_corresponding_article() {
-//        endUserSteps.is_the_home_page();
-//        endUserSteps.looks_for(getName());
-//        WebElement webElement = webdriver.findElement(By.xpath("//*[@id=\"card_grid\"]/div[1]"));
-//        String namep = webElement.getAttribute("data-name");
-//        System.out.println(namep);
-//        endUserSteps.should_see_definition("Portocala", namep, 0);
-//    }
+    @Test
+    public void searching_by_keyword_telefon_should_display_the_corresponding_article() {
+        endUserSteps.is_the_home_page();
+        endUserSteps.looks_for(getName());
+        WebElement webElement = webdriver.findElement(By.xpath("//*[@id=\"card_grid\"]/div[1]"));
+        String namep = webElement.getAttribute("data-name");
+        System.out.println(namep);
+        endUserSteps.should_see_definition("Telefon", namep, 1);
+    }
+
+    @Test
+    public void searching_by_keyword_telefon_should_not_display_the_corresponding_article() {
+        endUserSteps.is_the_home_page();
+        endUserSteps.looks_for(getName());
+        WebElement webElement = webdriver.findElement(By.xpath("//*[@id=\"card_grid\"]/div[1]"));
+        String namep = webElement.getAttribute("data-name");
+        System.out.println(namep);
+        endUserSteps.should_see_definition("Portocala", namep, 0);
+    }
 
     @Test
     public void add_to_cart_by_keyword_telefon_should_display_the_corresponding_article(){
@@ -76,11 +76,44 @@ public class SearchByKeywordStoryEmagDDT {
 //        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[3]/div[2]/div/section[1]/div/div[3]/div[2]/div[5]/div[1]/div/div/div[4]/div[2]/form/button")));
 //        webdriver.manage().window().maximize();
         endUserSteps.add_to_favourites();
-        WebElement favourites = webdriver.findElement(By.xpath("/html/body/div[3]/nav[1]/div/div/div[3]/div/div[3]"));
+        WebElement favourites = webdriver.findElement(By.xpath("//*[@id=\"my_wishlist\"]/i"));
         favourites.click();
         WebElement favouritesItem = webdriver.findElement(By.xpath("/html/body/div[3]/div[2]/div/section/div/div[2]/div/div/div[2]/div/div/div[2]/div[1]/h2/a/span"));
         String favouritesItemText = favouritesItem.getText();
         endUserSteps.should_see_definition("Telefon",favouritesItemText,1);
+
+
+//        endUserSteps.is_the_home_page();
+//        endUserSteps.looks_for(getName());
+//        WebElement webElement = webdriver.findElement(By.xpath("/html/body/div[3]/div[2]/div/section[1]/div/div[3]/div[2]/div[5]/div[1]/div/div/div[3]/div"));
+//        String
+//        assert webElement.getText().toString().toLowerCase().contains(itemName);
+//        endUserSteps.should_see_definition(itemDefinition,getDefinition());
+
+//        WebElement webElement = webdriver.findElement(By.xpath("//*[@id=\"card_grid\"]/div[2]"));
+//        String namep = webElement.getAttribute("data-name");
+//        endUserSteps.should_see_definition(getDefinition());
+    }
+
+    @Test
+    public void add_to_cart_by_keyword_telefon_should_not_display_the_corresponding_article(){
+
+
+        endUserSteps.is_the_home_page();
+        endUserSteps.looks_for(getName());
+        WebElement webElement = webdriver.findElement(By.xpath("//*[@id=\"card_grid\"]/div[1]"));
+        String namep = webElement.getAttribute("data-name");
+        //System.out.println(namep);
+        //endUserSteps.should_see_definition("Telefon", namep, 1);
+//        WebDriverWait wait = new WebDriverWait(webdriver, 10);
+//        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[3]/div[2]/div/section[1]/div/div[3]/div[2]/div[5]/div[1]/div/div/div[4]/div[2]/form/button")));
+//        webdriver.manage().window().maximize();
+        endUserSteps.add_to_favourites();
+        WebElement favourites = webdriver.findElement(By.xpath("//*[@id=\"my_wishlist\"]/i"));
+        favourites.click();
+        WebElement favouritesItem = webdriver.findElement(By.xpath("/html/body/div[3]/div[2]/div/section/div/div[2]/div/div/div[2]/div/div/div[2]/div[1]/h2/a/span"));
+        String favouritesItemText = favouritesItem.getText();
+        endUserSteps.should_see_definition("Portocala",favouritesItemText,0);
 
 
 //        endUserSteps.is_the_home_page();
